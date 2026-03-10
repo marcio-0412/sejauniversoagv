@@ -5,9 +5,10 @@ interface VideoSectionProps {
   title: string;
   subtitle: string;
   id?: string;
+  thumbnail?: string;
 }
 
-const VideoSection = ({ title, subtitle, id }: VideoSectionProps) => {
+const VideoSection = ({ title, subtitle, id, thumbnail }: VideoSectionProps) => {
   return (
     <section id={id} className="section-padding bg-background">
       <div className="container-narrow text-center">
@@ -28,6 +29,9 @@ const VideoSection = ({ title, subtitle, id }: VideoSectionProps) => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative aspect-video rounded-2xl overflow-hidden bg-foreground/5 border border-border/50 group cursor-pointer"
         >
+          {thumbnail && (
+            <img src={thumbnail} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+          )}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-lg group-hover:scale-110 transition-transform duration-300">
               <Play size={32} className="ml-1" />
