@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import logo from "@/assets/logo_4.png";
+import logo from "@/assets/logo_2.png";
 
 const HeroSection = () => {
   const scrollToNext = () => {
