@@ -1,96 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 216 72% 22%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary-light: 216 72% 30%;
+    --primary-glow: 216 80% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 10%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 216 72% 22%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 216 72% 22%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --gradient-hero: linear-gradient(180deg, hsl(220 20% 98%) 0%, hsl(216 40% 95%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(216 72% 22%) 0%, hsl(216 80% 35%) 100%);
+    --shadow-card: 0 1px 3px 0 hsl(220 20% 10% / 0.04), 0 1px 2px -1px hsl(220 20% 10% / 0.04);
+    --shadow-elevated: 0 10px 40px -10px hsl(216 72% 22% / 0.12);
   }
 }
 
@@ -100,6 +61,87 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40;
+  }
+
+  .section-padding-sm {
+    @apply px-6 py-16 md:px-12 md:py-24 lg:px-20 lg:py-28;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .headline-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight;
+  }
+
+  .headline-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight;
+  }
+
+  .headline-md {
+    @apply text-2xl md:text-3xl font-semibold leading-tight;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-xl leading-relaxed text-muted-foreground;
+  }
+
+  .body-md {
+    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-primary-foreground transition-all duration-300 text-base;
+    background: var(--gradient-cta);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .btn-primary:hover {
+    @apply scale-[1.02] opacity-90;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold border-2 border-primary text-primary transition-all duration-300 text-base;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl rounded-2xl border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-number {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight;
+    color: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(216 72% 22%) 0%, hsl(216 80% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
