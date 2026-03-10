@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import logo from "@/assets/logo_4.png";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -9,6 +10,15 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="container-narrow text-center px-6">
+        <motion.img
+          src={logo}
+          alt="Universo AGV"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="h-16 sm:h-20 mx-auto mb-10 object-contain"
+        />
+
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
