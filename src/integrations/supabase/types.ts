@@ -14,13 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admins: {
+        Row: {
+          created_at: string
+          email: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          cidade: string
+          created_at: string
+          estado: string
+          id: string
+          nome: string
+          observacoes: string | null
+          origem: string
+          status: string
+          telefone: string
+        }
+        Insert: {
+          cidade: string
+          created_at?: string
+          estado: string
+          id?: string
+          nome: string
+          observacoes?: string | null
+          origem?: string
+          status?: string
+          telefone: string
+        }
+        Update: {
+          cidade?: string
+          created_at?: string
+          estado?: string
+          id?: string
+          nome?: string
+          observacoes?: string | null
+          origem?: string
+          status?: string
+          telefone?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
