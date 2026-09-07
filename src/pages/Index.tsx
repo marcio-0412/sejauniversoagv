@@ -1,4 +1,6 @@
 import HeroSection from "@/components/landing/HeroSection";
+import IdentificationSection from "@/components/landing/IdentificationSection";
+import ObjectionSection from "@/components/landing/ObjectionSection";
 import AuthoritySection from "@/components/landing/AuthoritySection";
 import ExpansionSection from "@/components/landing/ExpansionSection";
 import VideoSection from "@/components/landing/VideoSection";
@@ -9,6 +11,7 @@ import TrafficSection from "@/components/landing/TrafficSection";
 import PortfolioSection from "@/components/landing/PortfolioSection";
 import CareerSection from "@/components/landing/CareerSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import FAQSection from "@/components/landing/FAQSection";
 import HowToStartSection from "@/components/landing/HowToStartSection";
 import FinalCTASection from "@/components/landing/FinalCTASection";
 import ContactSection from "@/components/landing/ContactSection";
@@ -20,6 +23,8 @@ const Index = () => {
   return (
     <main className="overflow-x-hidden">
       <HeroSection />
+      <IdentificationSection />
+      <ObjectionSection />
       <AuthoritySection />
       <ExpansionSection />
       <VideoSection
@@ -41,9 +46,11 @@ const Index = () => {
         id="video-cultura"
         thumbnail={videoThumbCultura}
       />
+      <FAQSection />
       <HowToStartSection />
-      <FinalCTASection />
       <ContactSection />
+      <FinalCTASection />
+
 
       <footer className="section-padding-sm bg-foreground text-primary-foreground">
         <div className="container-narrow text-center">

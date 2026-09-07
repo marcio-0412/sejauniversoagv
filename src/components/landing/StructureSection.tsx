@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
-import { Smartphone, Globe, Settings, Map } from "lucide-react";
+import { Smartphone, Globe, Settings, Map, GraduationCap, Headphones } from "lucide-react";
 
 const features = [
+  {
+    icon: <Settings size={28} />,
+    title: "Sistema de gestão",
+    description: "Sistema completo para gerenciar sua carteira de associados.",
+  },
   {
     icon: <Smartphone size={28} />,
     title: "App do consultor",
@@ -13,9 +18,14 @@ const features = [
     description: "Páginas otimizadas para captação de leads qualificados.",
   },
   {
-    icon: <Settings size={28} />,
-    title: "Sistema de gestão",
-    description: "Sistema completo para gerenciar sua carteira de associados.",
+    icon: <GraduationCap size={28} />,
+    title: "Treinamento",
+    description: "Capacitação comercial contínua, do básico ao avançado.",
+  },
+  {
+    icon: <Headphones size={28} />,
+    title: "Suporte",
+    description: "Acompanhamento próximo da equipe e dos gestores regionais.",
   },
   {
     icon: <Map size={28} />,
@@ -23,6 +33,7 @@ const features = [
     description: "Atue em todo o Brasil com preços regionais competitivos.",
   },
 ];
+
 
 const StructureSection = () => {
   return (
@@ -46,7 +57,7 @@ const StructureSection = () => {
           Ferramentas profissionais para você focar no que importa: vender.
         </motion.p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, i) => (
             <motion.div
               key={i}
