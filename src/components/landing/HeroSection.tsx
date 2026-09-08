@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import logo from "@/assets/logo_2.png";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const HeroSection = () => {
   const scrollToNext = () => {
