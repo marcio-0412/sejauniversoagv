@@ -1,0 +1,1 @@
+DELETE FROM public.leads WHERE nome IN ('Teste Lovable', 'Maria Teste');
