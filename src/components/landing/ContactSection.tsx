@@ -1,14 +1,36 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ nome: "", telefone: "", cidade: "", estado: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const { error: invokeError } = await supabase.functions.invoke("submit-lead", {
+        body: { ...form, origem: "Landing Page" },
+      });
+
+      if (invokeError) {
+        throw invokeError;
+      }
+
+      setSubmitted(true);
+      setForm({ nome: "", telefone: "", cidade: "", estado: "" });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Erro ao enviar. Tente novamente.";
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,8 +80,22 @@ const ContactSection = () => {
                   />
                 </div>
               ))}
-              <button type="submit" className="btn-primary w-full">
-                Receber mais informações
+
+              {error && (
+                <div className="rounded-xl bg-destructive/10 text-destructive px-4 py-3 text-sm">
+                  {error}
+                </div>
+              )}
+
+              <button type="submit" disabled={loading} className="btn-primary w-full disabled:opacity-70 disabled:cursor-not-allowed">
+                {loading ? (
+                  <span className="inline-flex items-center gap-2">
+                    <Loader2 size={18} className="animate-spin" />
+                    Enviando...
+                  </span>
+                ) : (
+                  "Receber mais informações"
+                )}
               </button>
             </form>
           )}
