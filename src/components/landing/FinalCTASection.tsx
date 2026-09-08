@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const FinalCTASection = () => {
   return (
@@ -21,7 +22,7 @@ const FinalCTASection = () => {
               Quero me tornar consultor
             </a>
             <a
-              href="https://wa.me/5500000000000"
+              href={whatsappLink("CTA final")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
