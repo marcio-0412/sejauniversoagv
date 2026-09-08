@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { User, MapPin, UsersRound, Network } from "lucide-react";
 
 const steps = [
-  { icon: <User size={24} />, title: "Consultor", desc: "Inicie sua jornada como consultor comercial." },
-  { icon: <MapPin size={24} />, title: "Gestor regional", desc: "Gerencie uma equipe em sua região." },
-  { icon: <UsersRound size={24} />, title: "Líder de equipe", desc: "Lidere e desenvolva novos consultores." },
-  { icon: <Network size={24} />, title: "Expansão de rede", desc: "Expanda sua operação para novas regiões." },
+  { icon: <User size={24} />, title: "Consultor", desc: "Inicie sua jornada como consultor comercial com toda a estrutura da operação." },
+  { icon: <UsersRound size={24} />, title: "Líder", desc: "Lidere e desenvolva novos consultores dentro da sua equipe." },
+  { icon: <MapPin size={24} />, title: "Gestor regional", desc: "Gerencie uma região e escale resultados com apoio da matriz." },
+  { icon: <Network size={24} />, title: "Expansão", desc: "Expanda sua operação para novas regiões e amplie sua rede." },
 ];
 
 const CareerSection = () => {
