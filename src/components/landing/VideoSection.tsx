@@ -11,20 +11,9 @@ interface VideoSectionProps {
 }
 
 const VideoSection = ({ title, subtitle, id, thumbnail, videoSrc }: VideoSectionProps) => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    setIsPlaying(true);
-  };
-
-  const handleClose = () => {
-    setIsPlaying(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
+  const handlePlay = () => {};
 
   return (
     <section id={id} className="section-padding bg-background">
