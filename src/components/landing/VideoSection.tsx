@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Play, X } from "lucide-react";
+import { Play } from "lucide-react";
 
 interface VideoSectionProps {
   title: string;
