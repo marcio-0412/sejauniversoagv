@@ -16,7 +16,6 @@ const VideoSection = ({ title, subtitle, id, thumbnail, videoSrc }: VideoSection
 
   const handlePlay = () => {
     setIsPlaying(true);
-    videoRef.current?.play();
   };
 
   const handleClose = () => {
