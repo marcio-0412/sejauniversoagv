@@ -16,7 +16,6 @@ const VideoSection = ({ title, subtitle, id, thumbnail, videoSrc }: VideoSection
 
   const handlePlay = () => {
     setIsPlaying(true);
-    videoRef.current?.play();
   };
 
   const handleClose = () => {
@@ -55,7 +54,12 @@ const VideoSection = ({ title, subtitle, id, thumbnail, videoSrc }: VideoSection
                 className="w-full h-full"
                 controls
                 autoPlay
+                preload="auto"
                 playsInline
+                onCanPlay={(e) => {
+                  const v = e.currentTarget;
+                  if (v.paused) v.play().catch(() => {});
+                }}
                 onEnded={handleClose}
               />
               <button
