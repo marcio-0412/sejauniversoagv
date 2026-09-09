@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Play, X } from "lucide-react";
+import { Play } from "lucide-react";
 
 interface VideoSectionProps {
   title: string;
@@ -11,20 +11,9 @@ interface VideoSectionProps {
 }
 
 const VideoSection = ({ title, subtitle, id, thumbnail, videoSrc }: VideoSectionProps) => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    setIsPlaying(true);
-  };
-
-  const handleClose = () => {
-    setIsPlaying(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
+  const handlePlay = () => {};
 
   return (
     <section id={id} className="section-padding bg-background">
@@ -46,30 +35,15 @@ const VideoSection = ({ title, subtitle, id, thumbnail, videoSrc }: VideoSection
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative aspect-video rounded-2xl overflow-hidden bg-foreground/5 border border-border/50 group"
         >
-          {isPlaying && videoSrc ? (
-            <div className="absolute inset-0 bg-black">
-              <video
-                ref={videoRef}
-                src={videoSrc}
-                className="w-full h-full"
-                controls
-                autoPlay
-                preload="auto"
-                playsInline
-                onCanPlay={(e) => {
-                  const v = e.currentTarget;
-                  if (v.paused) v.play().catch(() => {});
-                }}
-                onEnded={handleClose}
-              />
-              <button
-                onClick={handleClose}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                aria-label="Fechar vídeo"
-              >
-                <X size={20} />
-              </button>
-            </div>
+          {videoSrc ? (
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              className="absolute inset-0 w-full h-full bg-black"
+              controls
+              preload="metadata"
+              playsInline
+            />
           ) : (
             <>
               {thumbnail && (
