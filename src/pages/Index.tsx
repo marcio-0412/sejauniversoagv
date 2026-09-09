@@ -18,6 +18,7 @@ import ContactSection from "@/components/landing/ContactSection";
 import logoBlue from "@/assets/logo_2.png";
 import videoThumbInstitucional from "@/assets/video-thumb-institucional.jpg";
 import videoThumbCultura from "@/assets/video-thumb-cultura.jpg";
+import culturaVideo from "@/assets/cultura-universo-agv.mp4.asset.json";
 
 const Index = () => {
   return (
@@ -45,6 +46,7 @@ const Index = () => {
         subtitle="Time, eventos, crescimento e expansão nacional. Faça parte dessa história."
         id="video-cultura"
         thumbnail={videoThumbCultura}
+        videoSrc={culturaVideo.url}
       />
       <FAQSection />
       <HowToStartSection />
